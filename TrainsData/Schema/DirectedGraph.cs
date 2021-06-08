@@ -2,38 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Trains
+namespace TrainsData.Schema
 {
 	public class DirectedGraph
 	{
-    private readonly Dictionary<string, Node> nodesByName;
+    private readonly Dictionary<string, Node> _nodesByName;
     
 		public DirectedGraph()
 		{
-      nodesByName = new Dictionary<string, Node>();
+      _nodesByName = new Dictionary<string, Node>();
 		}
     
     public void AddNode(string name)
     {
-      if(nodesByName.ContainsKey(name))
+      if(_nodesByName.ContainsKey(name))
       {
         throw new ArgumentException($"A node named {name} already exists");
       }
-      
-        nodesByName.Add(name, new Node(name));
+      _nodesByName.Add(name, new Node(name));
     }
     
     public void AddEdge(string start, string destination, int length)
     {
-      Node startNode;
-      Node destNode;
-      
-      if(!nodesByName.TryGetValue(start, out startNode))
+      if(!_nodesByName.TryGetValue(start, out var startNode))
       {
         throw new ArgumentException($"Could not add edge: starting node {start} does not exist");
       }
       
-      if(!nodesByName.TryGetValue(destination, out destNode))
+      if(!_nodesByName.TryGetValue(destination, out var destNode))
       {
         throw new ArgumentException($"Could not add edge: destination node {destination} does not exist");
       }
@@ -43,13 +39,29 @@ namespace Trains
         throw new ArgumentException($"Could not add edge with length of {length}: must be a positive integer");
       }
       
-      //TODO unit test all this
       if (startNode.Edges.Any(n => n.Destination.Name == destination))
       {
         throw new ArgumentException($"Could not add edge {start}->{destination}: this edge already exists");
       }
+
+      if (start == destination)
+      {
+        throw new ArgumentException($"Could not add edge {start}->{destination}: must not be identical nodes");
+      }
       
-      startNode.Edges.Add(new Edge(length, destNode)); 
+      startNode.AddEdge(new Edge(length, destNode)); 
     }
-	}
+    
+    public Node GetNode(string name)
+    {
+      if(!_nodesByName.ContainsKey(name))
+      {
+        throw new ArgumentException($"Node {name} does not exist");
+      }
+
+      return _nodesByName[name];
+    }
+
+    public IEnumerable<string> GetNodeNames() => _nodesByName.Keys;
+  }
 }

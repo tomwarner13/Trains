@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Trains
+﻿namespace TrainsData.Schema
 {
 	public class Edge
 	{

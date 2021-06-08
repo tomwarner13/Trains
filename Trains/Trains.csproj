@@ -35,12 +35,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schema\DirectedGraph.cs" />
-    <Compile Include="Schema\Edge.cs" />
-    <Compile Include="Schema\Node.cs" />
+    <Compile Include="Util\GraphBuilder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Schema\" />
-  </ItemGroup>
 </Project>

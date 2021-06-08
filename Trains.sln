@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trains", "Trains\Trains.csproj", "{6CE20B51-2395-47DA-A8E6-ED69116665A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trains.Tests", "Trains.Tests\Trains.Tests.csproj", "{5DE60826-7FF9-4327-AC74-F1A9CB30451C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainsData", "TrainsData\TrainsData.csproj", "{6B2DE71D-9D4E-4924-BF3A-AE8357BFA38D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +17,14 @@ Global
 		{6CE20B51-2395-47DA-A8E6-ED69116665A4}.Debug|x86.Build.0 = Debug|x86
 		{6CE20B51-2395-47DA-A8E6-ED69116665A4}.Release|x86.ActiveCfg = Release|x86
 		{6CE20B51-2395-47DA-A8E6-ED69116665A4}.Release|x86.Build.0 = Release|x86
+		{5DE60826-7FF9-4327-AC74-F1A9CB30451C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5DE60826-7FF9-4327-AC74-F1A9CB30451C}.Debug|x86.Build.0 = Debug|Any CPU
+		{5DE60826-7FF9-4327-AC74-F1A9CB30451C}.Release|x86.ActiveCfg = Release|Any CPU
+		{5DE60826-7FF9-4327-AC74-F1A9CB30451C}.Release|x86.Build.0 = Release|Any CPU
+		{6B2DE71D-9D4E-4924-BF3A-AE8357BFA38D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6B2DE71D-9D4E-4924-BF3A-AE8357BFA38D}.Debug|x86.Build.0 = Debug|Any CPU
+		{6B2DE71D-9D4E-4924-BF3A-AE8357BFA38D}.Release|x86.ActiveCfg = Release|Any CPU
+		{6B2DE71D-9D4E-4924-BF3A-AE8357BFA38D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
