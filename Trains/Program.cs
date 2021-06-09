@@ -28,35 +28,43 @@ namespace Trains
         prompts = new TrainPrompts(routes);
       }
 
+      var lineNumber = 1;
+
       // 1. The distance of the route A-B-C.
-      Console.WriteLine(prompts.FindRouteDistance("A", "B", "C"));
+      lineNumber = OutputLine(lineNumber,prompts.FindRouteDistance("A", "B", "C"));
       
       // 2. The distance of the route A-D.
-      Console.WriteLine(prompts.FindRouteDistance("A", "D"));
+      lineNumber = OutputLine(lineNumber, prompts.FindRouteDistance("A", "D"));
       
       // 3. The distance of the route A-D-C.
-      Console.WriteLine(prompts.FindRouteDistance("A", "D", "C"));
+      lineNumber = OutputLine(lineNumber, prompts.FindRouteDistance("A", "D", "C"));
       
       // 4. The distance of the route A-E-B-C-D.
-      Console.WriteLine(prompts.FindRouteDistance("A", "E", "B", "C", "D"));
+      lineNumber = OutputLine(lineNumber, prompts.FindRouteDistance("A", "E", "B", "C", "D"));
       
       // 5. The distance of the route A-E-D.
-      Console.WriteLine(prompts.FindRouteDistance("A", "E", "D"));
+      lineNumber = OutputLine(lineNumber, prompts.FindRouteDistance("A", "E", "D"));
       
       // 6. The number of trips starting at C and ending at C with a maximum of 3 stops.
-      Console.WriteLine(prompts.CountRoutesWithMaxStops("C", "C", 3));
+      lineNumber = OutputLine(lineNumber, prompts.CountRoutesWithMaxStops("C", "C", 3));
       
       // 7. The number of trips starting at A and ending at C with exactly 4 stops.
-      Console.WriteLine(prompts.CountRoutesWithTotalStops("A", "C", 4));
+      lineNumber = OutputLine(lineNumber, prompts.CountRoutesWithTotalStops("A", "C", 4));
       
       // 8. The length of the shortest route (in terms of distance to travel) from A to C.
-      Console.WriteLine(prompts.GetShortestPathDistance("A", "C"));
+      lineNumber = OutputLine(lineNumber, prompts.GetShortestPathDistance("A", "C"));
       
       // 9. The length of the shortest route (in terms of distance to travel) from B to B.
-      Console.WriteLine(prompts.GetShortestPathDistance("B", "B"));
+      lineNumber = OutputLine(lineNumber, prompts.GetShortestPathDistance("B", "B"));
       
       // 10. The number of different routes from C to C with a distance of less than 30.
-      Console.WriteLine(prompts.CountRoutesWithMaxDistance("C", "C", 30));
+      lineNumber = OutputLine(lineNumber, prompts.CountRoutesWithMaxDistance("C", "C", 30));
+    }
+
+    private static int OutputLine(int lineNumber, string output)
+    {
+      Console.WriteLine($"Output #{lineNumber}: {output}");
+      return lineNumber + 1;
     }
 	}
 }
