@@ -12,7 +12,7 @@ There are extensive unit tests; you can run them to verify they pass, and they s
 
 # Design Overview
 
-I split this solution into three projects -- a main project which runs the application and performs high-level parsing and business logic, a data library which contains the meat of the algorithms and data structures, and a unit test project.
+I split this solution into three projects -- a main project which runs the application, performs high-level parsing and business logic, and runs the calculation algorithms, a data library which contains the data structures, and a unit test project which tests the algorithms against data from the prompts and otherwise.
 
 I hope the overall architecture and algorithm design is self-evident from looking at the code and the comments.
 
