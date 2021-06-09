@@ -51,8 +51,10 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="GraphBuilderTests.cs" />
         <Compile Include="GraphTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="RouteCalculationsTests.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\TrainsData\TrainsData.csproj">

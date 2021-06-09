@@ -42,6 +42,8 @@
         <Compile Include="Schema\DirectedGraph.cs" />
         <Compile Include="Schema\Edge.cs" />
         <Compile Include="Schema\Node.cs" />
+        <Compile Include="Schema\Tree.cs" />
+        <Compile Include="Schema\TreeNode.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

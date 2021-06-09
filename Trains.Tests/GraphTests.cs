@@ -8,7 +8,7 @@ namespace Trains.Tests
   public class GraphTests
   {
     [Fact]
-    public void TestGraphBuilding()
+    public void TestGraphCreation()
     {
       var graph = new DirectedGraph();
       graph.AddNode("A");
