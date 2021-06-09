@@ -33,10 +33,13 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Parsers\FileInputParser.cs" />
+    <Compile Include="Parsers\StringInputParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\GraphBuilder.cs" />
     <Compile Include="Util\RouteCalculations.cs" />
+    <Compile Include="Util\TrainPrompts.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TrainsData\TrainsData.csproj">

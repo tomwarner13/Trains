@@ -82,8 +82,6 @@ namespace Trains.Util
       return GetRoutesFromStopByStopRange(firstStop, dest, min, max, 0);
     }
 
-    //same as above, but returns based on total number of stops
-    //note the first stop is not included in the total
     private static List<Route> GetRoutesFromStopByStopRange(Node currentStop, string dest, int min, int max,
       int currentStops)
     {
@@ -113,7 +111,7 @@ namespace Trains.Util
     
     //uses dijkstra's algorithm to return the shortest path between two nodes if found, or null if there is no path
     //note the DO prompt includes routes which start/end at the same point, but you can't return a trip of 0 for that
-    //therefore, some the special handling added here for start node and zero-length routes
+    //therefore, some special handling added here for start node and zero-length routes
     public Route FindShortestPath(string start, string dest)
     {
       var startNode = _routes.GetNode(start);

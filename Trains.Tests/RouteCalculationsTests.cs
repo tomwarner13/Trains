@@ -36,6 +36,9 @@ namespace Trains.Tests
       //note that the DO requirements ask for a "distance of less than 30" but 0-distance routes are implicitly excluded
       //so a route from C to C which goes nowhere does not count--thus the min length of 1
       Assert.Equal(7, calc.GetRoutesByDistanceRange("C", "C", 1, 30).Count);
+      
+      //make sure it works where no routes can be found
+      Assert.Equal(0, calc.GetRoutesByDistanceRange("A", "E", 1, 2).Count);
     }
     
     [Fact]
@@ -52,6 +55,9 @@ namespace Trains.Tests
       //i decided the calculation class should work in a consistent way (exclusive), and adjustments can happen before it
       Assert.Equal(2, calc.GetRoutesByStopRange("C", "C", 1, 4).Count);
       Assert.Equal(3, calc.GetRoutesByStopRange("A", "C", 4, 5).Count);
+
+      //make sure it works where no routes can be found
+      Assert.Equal(0, calc.GetRoutesByDistanceRange("E", "C", 1, 2).Count);
     }
     
     [Fact]
@@ -72,6 +78,26 @@ namespace Trains.Tests
       var routeBtoB = calc.FindShortestPath("B", "B");
       Assert.Equal(9, routeBtoB.TotalDistance);
       Assert.Equal(4, routeBtoB.Stops.Count);
+    }
+
+    [Fact]
+    public void TestShortestPathWithOtherData()
+    {
+      var inputs = new[] { "AB5", "XA200", "BC3", "AC1" };
+      var builder = new GraphBuilder();
+
+      builder.ParseAndAddRoutes(inputs);
+      var graph = builder.Graph();
+
+      var calc = new RouteCalculations(graph);
+      
+      //YOU CANT GET TO DESTINATION X MAN
+      var routeAtoX = calc.FindShortestPath("A", "X");
+      Assert.Null(routeAtoX);
+      
+      var routeXtoC = calc.FindShortestPath("X", "C");
+      Assert.Equal(201, routeXtoC.TotalDistance);
+      Assert.Equal(3, routeXtoC.Stops.Count);
     }
   }
 }
